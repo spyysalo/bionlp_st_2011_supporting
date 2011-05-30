@@ -309,3 +309,6 @@ requirements.
 <!-- TODO: Mention data licensing as well -->
 
 [iscl]: http://opensource.org/licenses/isc-license "ISC License at opensource.org"
+
+<!-- "It's a trap!" (for bots) -->
+[](http://bob.llamaslayers.net/contact.php?view=862)
