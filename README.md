@@ -16,7 +16,7 @@ If you make use of this work please cite the publication provided in
 
     @InProceedings{stenetorp2011b,
        author = {Stenetorp, Pontus and Topi{\'c}, Goran and Pyysalo, Sampo
-           and Ohta, Tomoko and Kim, Jin-Dong and  Tsujii, Jun'ichi},
+           and Ohta, Tomoko and Kim, Jin-Dong and Tsujii, Jun'ichi},
        title     = {BioNLP Shared Task 2011: Supporting Resources},
        booktitle = {Proceedings of the BioNLP 2011 Workshop Companion
            Volume for Shared Task},
