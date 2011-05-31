@@ -45,7 +45,7 @@ need to enable additional software sources under
 "System/Administration/Update Manager/Settings/Ubuntu Software", make sure that
 the option "Community Maintained Open Source software" (universe) is checked).
 
-    > sudo apt-get install perl python ruby make gcc sun-java6-jre
+    sudo apt-get install perl python ruby make gcc sun-java6-jre
 
 For other operating systems please refer to your manual or the documents found
 on the homepages of the respective software.
@@ -95,6 +95,7 @@ Please verify using the `--version` flag that you are indeed running a GNU
 version of Make (what is important is the "GNU Make" part and that it is not
 ancient, anything after the year 2000 should be fine).
 
+    > gmake --version
     GNU Make 3.82
     Built for x86_64-unknown-linux-gnu
     Copyright (C) 2010  Free Software Foundation, Inc.
@@ -119,6 +120,7 @@ software that needs to be compiled works with version 4.2.1.
     warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 #### Sun Java 6 ####
+
 The [Berkeley][berkeley] and [Stanford Parser][stanford] along with a few of
 our conversion tools are implemented in Java, thus requiring a Java Virtual
 Machine (JVM) to run. We used version 6 of the official Sun Java distribution.
@@ -163,8 +165,8 @@ want to process should not use this file suffix.
 For the easiest case just use and follow the instructions to manually download
 the software which licenses prohibits us to access it automatically.
 
-    > cd ${WHERE_YOU_DOWLOADED_AND_EXTRACTED_THE_REPOSITORY}
-    > make
+    cd ${WHERE_YOU_DOWLOADED_AND_EXTRACTED_THE_REPOSITORY}
+    make
 
 <!-- TODO: Without bad software! -->
 <!-- TODO: Just a single type -->
@@ -207,7 +209,7 @@ You can find the file used to generate the flowchart at
 `doc/bionlp_st_2011_parsing_pipeline.dot` and then generate the image using
 the following command if you have Graphviz installed.
 
-    > dot -T svg workflow.dot > workflow.svg
+    dot -T svg workflow.dot > workflow.svg
 
 <!-- TODO: Replace the link to the image! -->
 [graphviz]: http://www.graphviz.org/ "Graphviz Homepage"
@@ -254,7 +256,7 @@ data directory structure the output from the Makefile is re-structured into
 another following format before release. This is done using a script that can
 be found in `tools/repack.py`.
 
-    > tools/repack.py ${OUTPUT_DIR} ${REFORMATTED_OUTPUT_DIR}
+    tools/repack.py ${OUTPUT_DIR} ${REFORMATTED_OUTPUT_DIR}
 
 The format is as follows:
 
