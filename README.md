@@ -1,15 +1,15 @@
-# BioNLP Shared Task 2011 Data Post-processing #
+# BioNLP Shared Task 2011 Data Pre-processing #
 
-For the [BioNLP Shared Task 2011][st] post-processed data was released to ease
+For the [BioNLP Shared Task 2011][st] pre-processed data was released to ease
 the burden on the participants and allow them to focus on the task instead of
-spending time post-processing the data. We used a suite of NLP tools listed in
+spending time pre-processing the data. We used a suite of NLP tools listed in
 the "Software Used" section and released the resulting data.
 
 The reason for also releasing the scripts and documenting the procedures used
 is to allow participants the chance to verify the procedure in search of
 errors. It also enables future research to replicate the procedures used to
-generate the post-processed data, for example to be used as suitable training
-data for systems participating in the shared task.
+generate the pre-processed data, for example to create suitable training data
+for systems participating in the shared task.
 
 If you make use of this work please cite the publication provided in
 [BibTeX][bibtex] format:
@@ -31,7 +31,13 @@ If you make use of this work please cite the publication provided in
 
 ## Usage ##
 
+This section covers the usage of the scripts and how to set them up appropriately.
+
 ### Prerequisites ##
+
+This section covers the software that is required to run the main scripts and
+provide details on which versions that were used to create the pre-processed
+shared task data.
 
 #### Installation ####
 
@@ -51,6 +57,7 @@ For other operating systems please refer to your manual or the documents found
 on the homepages of the respective software.
 
 #### Perl ####
+
 We used the following version of Perl, older and newer versions may work but
 this information is provided for reference purposes.
 
@@ -140,6 +147,9 @@ use when using the `java` command, please see the
 
 ### Invocation ###
 
+This section covers the procedure which to use to generate the pre-processed
+data.
+
 #### Licensing Restrictions and You ####
 
 During the first invocation of the makefile you will be prompted to manually
@@ -160,7 +170,7 @@ be ignored by the post-processing script. This is the cue for GNU Make to
 consider a file to be suitable as input. Also note that any files you may not
 want to process should not use this file suffix.
 
-#### Invoking the Post-processing ####
+#### Invoking the Pre-processing ####
 
 For the easiest case just use and follow the instructions to manually download
 the software which licenses prohibits us to access it automatically.
@@ -171,6 +181,7 @@ the software which licenses prohibits us to access it automatically.
 <!-- TODO: Without bad software! -->
 <!-- TODO: Just a single type -->
 <!-- TODO: Select the data directory. -->
+<!-- TODO: Where will the data end up? -->
 
 [nix]: http://en.wikipedia.org/wiki/Unix-like "Unix-like on Wikipedia"
 [perl]: http://www.perl.org/ "Perl Homepage"
@@ -206,14 +217,15 @@ the process described under "Invocation".
 ![Image Showing the Workflow of the Post-processing][pipeline_svg]
 
 You can find the file used to generate the flowchart at
-`doc/bionlp_st_2011_parsing_pipeline.dot` and then generate the image using
+`doc/parsing_pipeline.dot` and then generate an image using
 the following command if you have Graphviz installed.
 
-    dot -T svg workflow.dot > workflow.svg
+    dot -T ${IMAGE_FORMAT} doc/parsing_pipeline.dot \
+        > doc/parsing_pipeline.${IMAGE_FORMAT}
 
 <!-- TODO: Replace the link to the image! -->
 [graphviz]: http://www.graphviz.org/ "Graphviz Homepage"
-[pipeline_svg]: http://www.foo.com/bar/bionlp_2011_postprocessing.svg
+[pipeline_svg]: https://github.com/ninjin/bionlp_st_2011_supporting/raw/master/doc/parsing_pipeline.svg "Image illustrating the parsing pipeline"
 [svg]: http://en.wikipedia.org/wiki/Scalable_Vector_Graphics "Scalable Vectors Graphics (SVG) on Wikipedia"
 
 ### GNU Make ###
