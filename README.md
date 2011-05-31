@@ -206,11 +206,10 @@ the software which licenses prohibits us to access it automatically.
 ### Workflow ###
 
 While a description in text of a workflow may be suitable for some it is
-difficult to get a clear overview of the process. Below is a flowchart
-generated using [Graphviz][graphviz]. It is fairly large so you may want to
-open it in a separate tab or window for easier viewing.
-
-![Image Showing the Workflow of the Post-processing][pipeline_img]
+difficult to get a clear overview of the process. For a better overview please
+see [this flowchart image][pipeline_img] generated using [Graphviz][graphviz].
+It is fairly large so you may want to open it in a separate tab or window for
+easier viewing.
 
 You can find the file used to generate the flowchart at
 `doc/parsing_pipeline.dot` and then generate an image using
@@ -219,10 +218,8 @@ the following command if you have Graphviz installed.
     dot -T ${IMAGE_FORMAT} doc/parsing_pipeline.dot \
         > doc/parsing_pipeline.${IMAGE_FORMAT}
 
-<!-- TODO: Replace the link to the image! -->
 [graphviz]: http://www.graphviz.org/ "Graphviz Homepage"
-[pipeline_img]: https://github.com/ninjin/bionlp_st_2011_supporting/raw/master/doc/parsing_pipeline.png "Image illustrating the parsing pipeline"
-[svg]: http://en.wikipedia.org/wiki/Scalable_Vector_Graphics "Scalable Vectors Graphics (SVG) on Wikipedia"
+[pipeline_img]: https://github.com/ninjin/bionlp_st_2011_supporting/raw/master/doc/parsing_pipeline.png
 
 ### GNU Make ###
 
