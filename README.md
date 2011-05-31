@@ -208,13 +208,9 @@ the software which licenses prohibits us to access it automatically.
 While a description in text of a workflow may be suitable for some it is
 difficult to get a clear overview of the process. Below is a flowchart
 generated using [Graphviz][graphviz]. It is fairly large so you may want to
-open it in a separate tab or window for easier viewing, it is also in the
-[Scalable Vector Graphics][svg] (SVG) format which is at the point of writing
-not supported by Internet Explorer. Dotted boxes indicate that the data is not
-a part of the post-processed data release but can of course be generated using
-the process described under "Invocation".
+open it in a separate tab or window for easier viewing.
 
-![Image Showing the Workflow of the Post-processing][pipeline_svg]
+![Image Showing the Workflow of the Post-processing][pipeline_img]
 
 You can find the file used to generate the flowchart at
 `doc/parsing_pipeline.dot` and then generate an image using
@@ -225,7 +221,7 @@ the following command if you have Graphviz installed.
 
 <!-- TODO: Replace the link to the image! -->
 [graphviz]: http://www.graphviz.org/ "Graphviz Homepage"
-[pipeline_svg]: https://github.com/ninjin/bionlp_st_2011_supporting/raw/master/doc/parsing_pipeline.svg "Image illustrating the parsing pipeline"
+[pipeline_img]: https://github.com/ninjin/bionlp_st_2011_supporting/raw/master/doc/parsing_pipeline.png "Image illustrating the parsing pipeline"
 [svg]: http://en.wikipedia.org/wiki/Scalable_Vector_Graphics "Scalable Vectors Graphics (SVG) on Wikipedia"
 
 ### GNU Make ###
