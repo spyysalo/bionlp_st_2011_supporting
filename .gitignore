@@ -1,3 +1,4 @@
-input
-output
-wrk
+build/
+input/
+output/
+wrk/
