@@ -1,0 +1,57 @@
+/* XXX: Mark what was released somehow */
+digraph workflow {
+    /* Text to sentence split */
+    txt [label="Raw text", shape="box"];
+    ss [label="Sentence split using newlines", shape="box"];
+    txt -> ss;
+
+    /* Sentence split to the various tokenisation formats */ 
+    tok [label="Tokenised text", shape="box"];
+    ss -> tok;
+    tok_mccc [label="Tokenised text adapted to the MCCC model", shape="box"];
+    ss -> tok_mccc;
+    tok_ptb [label="Tokenised text with PTB escapes", shape="box"];
+    ss -> tok_ptb;
+
+    /* Enju post-processing */
+    enju_xml [label="Enju output in XML-format", shape="box"];
+    tok -> enju_xml;
+    enju_ptb [label="Enju output in PTB-format", shape="box"];
+    enju_xml -> enju_ptb;
+    enju_sd [label="Enju output in SD-format", shape="box"];
+    enju_ptb -> enju_sd;
+    enju_cc_sd [label="Enju output in CCProc SD-format", shape="box"];
+    enju_ptb -> enju_cc_sd;
+    enju_conll [label="Enju output in CoNLL-X-format", shape="box"];
+    enju_ptb -> enju_conll;
+
+    /* Stanford post-processing */
+    stp_ptb [label="Stanford output in PTB-format", shape="box"];
+    tok -> stp_ptb;
+    stp_sd [label="Stanford output in SD-format", shape="box"];
+    stp_ptb -> stp_sd;
+    stp_cc_sd [label="Stanford output in CCProc SD-format", shape="box"];
+    stp_ptb -> stp_cc_sd;
+    stp_conll [label="Enju output in CoNLL-X-format", shape="box"];
+    stp_ptb -> stp_conll;
+
+    /* Berkeley post-processing */
+    ucb_ptb [label="Berkeley output in PTB-format", shape="box"];
+    tok_ptb -> ucb_ptb;
+    ucb_sd [label="Berkeley output in SD-format", shape="box"];
+    ucb_ptb -> ucb_sd;
+    ucb_cc_sd [label="Berkeley output in CCProc SD-format", shape="box"];
+    ucb_ptb -> ucb_cc_sd;
+    ucb_conll [label="Berkeley output in CoNLL-X-format", shape="box"];
+    ucb_ptb -> ucb_conll;
+
+    /* GDep post-processing */
+    gdep_conll [label="GDep output in CoNLL-X-format", shape="box"];
+    tok -> gdep_conll;
+
+    /* CCG post-processing */
+    ccg_ccg [label="CCG output in CCG-format", shape="box"];
+    tok -> ccg_ccg;
+    ccg_sd [label="CCG output in SD-format", shape="box"];
+    ccg_ccg -> ccg_sd;
+}
