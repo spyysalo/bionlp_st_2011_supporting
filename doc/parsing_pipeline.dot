@@ -1,57 +1,66 @@
-/* XXX: Mark what was released somehow */
 digraph workflow {
     /* Text to sentence split */
     txt [label="Raw text", shape="box"];
     ss [label="Sentence split using newlines", shape="box"];
-    txt -> ss;
+    txt -> ss [label="GeniaSS and geniass-postproc.pl"];
 
     /* Sentence split to the various tokenisation formats */ 
     tok [label="Tokenised text", shape="box"];
-    ss -> tok;
+    ss -> tok [label="GTB-tokenize.pl"];
     tok_mccc [label="Tokenised text adapted to the MCCC model", shape="box"];
-    ss -> tok_mccc;
+    ss -> tok_mccc [label="GTB-tokenize.pl -mccc"];
     tok_ptb [label="Tokenised text with PTB escapes", shape="box"];
-    ss -> tok_ptb;
+    ss -> tok_ptb [label="GTB-tokenize.pl -ptb"];
 
-    /* Enju post-processing */
+    /* MCCC Pre-processing */
+    mccc_ptb [label="MCCC output in PTB-format", shape="box"];
+    tok_mccc -> mccc_ptb [label="MCCC parser"];
+    mccc_sd [label="MCCC output in SD-format", shape="box"];
+    mccc_ptb -> mccc_sd [label="Stanford tools"];
+    mccc_cc_sd [label="MCCC output in CCProc SD-format", shape="box"];
+    mccc_ptb -> mccc_cc_sd [label="Stanford tools"];
+    mccc_conll [label="MCCC output in CoNLL-X-format", shape="box"];
+    mccc_ptb -> mccc_conll [label="Pennconverter tool"];
+
+    /* Enju pre-processing */
     enju_xml [label="Enju output in XML-format", shape="box"];
-    tok -> enju_xml;
+    tok -> enju_xml [label="Enju parser"];
     enju_ptb [label="Enju output in PTB-format", shape="box"];
-    enju_xml -> enju_ptb;
+    enju_xml -> enju_ptb [label="Enju converter and postenju2ptb.prl"];
     enju_sd [label="Enju output in SD-format", shape="box"];
-    enju_ptb -> enju_sd;
+    enju_ptb -> enju_sd [label="Stanford tools"];
     enju_cc_sd [label="Enju output in CCProc SD-format", shape="box"];
-    enju_ptb -> enju_cc_sd;
+    enju_ptb -> enju_cc_sd [label="Stanford tools"];
     enju_conll [label="Enju output in CoNLL-X-format", shape="box"];
-    enju_ptb -> enju_conll;
+    enju_ptb -> enju_conll [label="Pennconverter tool"];
 
-    /* Stanford post-processing */
+    /* Stanford pre-processing */
     stp_ptb [label="Stanford output in PTB-format", shape="box"];
-    tok -> stp_ptb;
+    tok -> stp_ptb [label="Stanford parser"];
     stp_sd [label="Stanford output in SD-format", shape="box"];
-    stp_ptb -> stp_sd;
+    stp_ptb -> stp_sd [label="Stanford tools"];
     stp_cc_sd [label="Stanford output in CCProc SD-format", shape="box"];
-    stp_ptb -> stp_cc_sd;
+    stp_ptb -> stp_cc_sd [label="Stanford tools"];
     stp_conll [label="Enju output in CoNLL-X-format", shape="box"];
-    stp_ptb -> stp_conll;
+    stp_ptb -> stp_conll [label="Pennconverter tool"];
 
-    /* Berkeley post-processing */
+    /* Berkeley pre-processing */
     ucb_ptb [label="Berkeley output in PTB-format", shape="box"];
-    tok_ptb -> ucb_ptb;
+    tok_ptb -> ucb_ptb [label="Berkeley parser"];
     ucb_sd [label="Berkeley output in SD-format", shape="box"];
-    ucb_ptb -> ucb_sd;
+    ucb_ptb -> ucb_sd [label="Stanford tools"];
     ucb_cc_sd [label="Berkeley output in CCProc SD-format", shape="box"];
-    ucb_ptb -> ucb_cc_sd;
+    ucb_ptb -> ucb_cc_sd [label="Stanford tools"];
     ucb_conll [label="Berkeley output in CoNLL-X-format", shape="box"];
-    ucb_ptb -> ucb_conll;
+    ucb_ptb -> ucb_conll [label="Pennconverter tool"];
 
-    /* GDep post-processing */
+    /* GDep pre-processing */
     gdep_conll [label="GDep output in CoNLL-X-format", shape="box"];
-    tok -> gdep_conll;
+    tok -> gdep_conll [GDep parser];
 
-    /* CCG post-processing */
+    /* CCG pre-processing */
     ccg_ccg [label="CCG output in CCG-format", shape="box"];
-    tok -> ccg_ccg;
+    tok -> ccg_ccg [label="C&C CCG Parser"];
     ccg_sd [label="CCG output in SD-format", shape="box"];
-    ccg_ccg -> ccg_sd;
+    ccg_ccg -> ccg_sd [label="C&C Conversion tool"];
 }
