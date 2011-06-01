@@ -1,0 +1,11 @@
+--- ./first-stage/PARSE/parseIt.C.old	2010-12-22 16:49:24.000000000 +0900
++++ ./first-stage/PARSE/parseIt.C	2010-12-22 16:49:35.000000000 +0900
+@@ -125,7 +125,7 @@
+ void*
+ mainLoop(void* arg)
+ {
+-  int id = (int)arg;
++  size_t id = (size_t)arg;
+   PrintStack printStack;
+   for( ; ; )
+     {
