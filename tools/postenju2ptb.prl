@@ -1,0 +1,18 @@
+#!/usr/bin/perl
+
+# Allegedly written by MIYAO-san for Enju 2.2
+
+use strict;
+
+while (<>) {
+    next if /^\s*$/;
+    if (/^\(fragmental/) {
+        s/(\(\S+ )+\(/\(/g;
+        s/\)+/\)/g;
+        chop;
+        print "(TOP $_)\n";
+    } else {
+        print;
+    }
+}
+
