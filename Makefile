@@ -26,6 +26,7 @@ GOOD_EXT_DIR_ABS:=${PWD}/${BAD_EXT_DIR}
 BAD_EXT_DIR:=${WRK_DIR}/bad
 BAD_EXT_DIR_ABS:=${PWD}/${BAD_EXT_DIR}
 OUTPUT_DIR:=build
+RELEASE_DIR:=${OUTPUT_DIR}/release
 
 ### Filename suffixes used internally before tools/repack.py
 SS_SUFF:=ss
@@ -328,8 +329,17 @@ EXTERNAL_GOOD_DIRS=${MCCCJ_SRC_DIR} ${MCCCJ_MODEL_DIR} \
 
 ### From here on we use our declarations to accomplish things
 
-.PHONY: all
-all: ss tok enju stanford berkeley candc mcccj gdep checksum
+.PHONY: release
+release: repack checksum
+
+# Re-pack our internal format to emulate BioNLP'09 ST, will fail for new data
+.PHONY: repack
+repack: internal | ${RELEASE_DIR}
+	tools/repack.py ${OUTPUT_DIR} ${RELEASE_DIR}
+
+# Internal parcing format, this target should work for pretty much any input
+.PHONY: internal
+internal: ss tok enju stanford berkeley candc mcccj gdep
 
 ### Archive targets
 define archive-target
@@ -359,18 +369,20 @@ ${foreach ARCHIVE, ${ARCHIVES}, \
 #XXX: CHECKSUM
 #XXX: Extract the command
 .PHONY: checksum
-checksum: ${OUTPUT_DIR}/CHECKSUM.MD5 ${OUTPUT_DIR}/CHECKSUM.SHA256
+checksum: ${RELEASE_DIR}/CHECKSUM.MD5 ${RELEASE_DIR}/CHECKSUM.SHA256
 
-${OUTPUT_DIR}/CHECKSUM.MD5: ${ARCHIVE_NAMES} | ${OUTPUT_DIR}
-	cd ${OUTPUT_DIR} && \
-		echo ${ARCHIVE_NAMES} \
+${RELEASE_DIR}/CHECKSUM.MD5: repack | ${RELEASE_DIR}
+	cd ${RELEASE_DIR} && \
+		rm -f CHECKSUM.MD5 && \
+		find . -name '*.tar.gz' \
 		| xargs -n 1 -r basename \
 		| xargs md5sum \
 		> CHECKSUM.MD5
 
-${OUTPUT_DIR}/CHECKSUM.SHA256: ${ARCHIVE_NAMES} | ${OUTPUT_DIR}
-	cd ${OUTPUT_DIR} && \
-		echo ${ARCHIVE_NAMES} \
+${RELEASE_DIR}/CHECKSUM.SHA256: repack | ${RELEASE_DIR}
+	cd ${RELEASE_DIR} && \
+		rm -f CHECKSUM.SHA256 && \
+		find . -name '*.tar.gz' \
 		| xargs -n 1 -r basename \
 		| xargs sha256sum \
 		> CHECKSUM.SHA256
@@ -500,6 +512,9 @@ ${WRK_DATA_DIR}:
 
 ${OUTPUT_DIR}:
 	mkdir -p ${OUTPUT_DIR}
+
+${RELEASE_DIR}:
+	mkdir -p ${RELEASE_DIR}
 
 ### Targets for the "bad" software
 ${EXTERNAL_BAD}: | ${BAD_EXT_DIR}
