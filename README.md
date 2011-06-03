@@ -33,6 +33,43 @@ If you make use of this work please cite the publication provided in
 
 This section covers the usage of the scripts and how to set them up appropriately.
 
+## Quick-start ##
+
+In an ideal world, you would ge able to just pull this repository and run it,
+but as [Carmack][carmack] has pointed out on [a different note][wrinceonce]
+"Write-once-run-anywhere. Ha. Hahahahaha." Most likely you will have to read
+the "Prerequisites" section, but here is the absolutely quickest way to
+replicate the process using this repository.
+
+Clone the repository:
+
+    git clone git@github.com:ninjin/bionlp_st_2011_supporting.git
+
+Or download and extract the repository using the "Downloads" button on this
+page.
+
+Create the `input` directory and place one or several Gzipped tarballs
+containing files with `.txt` extensions and run:
+
+    make
+
+Or, if you prefer to only use one out of several available parsers use one of
+the following:
+
+<!-- Expand the names here! -->
+
+    make berkeley
+    make candc
+    make enju
+    make gdep
+    make mcccj
+    make ss
+    make stanford
+    make tok
+
+[carmack]: http://en.wikipedia.org/wiki/John_D._Carmack
+[writeonce]: http://www.armadilloaerospace.com/n.x/johnc/recent%20updates/archive?news_id=295
+
 ### Prerequisites ##
 
 This section covers the software that is required to run the main scripts and
