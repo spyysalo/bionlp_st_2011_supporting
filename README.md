@@ -11,8 +11,12 @@ errors. It also enables future research to replicate the procedures used to
 generate the pre-processed data, for example to create suitable training data
 for systems participating in the shared task.
 
-If you make use of this work please cite the publication provided in
-[BibTeX][bibtex] format:
+You can download the data from the [BioNLP Shared Task 2011 website][st] and
+for a good overview of the process please see this [flowchart][pipeline_img].
+
+If you make use of the released data or these instructions in your
+publications please cite the publication below which is provided
+in [BibTeX][bibtex] format:
 
     @InProceedings{stenetorp2011b,
        author = {Stenetorp, Pontus and Topi{\'c}, Goran and Pyysalo, Sampo
@@ -33,7 +37,7 @@ If you make use of this work please cite the publication provided in
 
 This section covers the usage of the scripts and how to set them up appropriately.
 
-## Quick-start ##
+### Quick-start ###
 
 In an ideal world, you would ge able to just pull this repository and run it,
 but as [Carmack][carmack] has pointed out on [a different note][carmack_blog]
@@ -94,6 +98,10 @@ The [Genia Sentence Splitter][geniass] and/or tokenisation:
 The  [Stanford parser][stanford]:
 
     make stanford
+
+If you want some additional speed you can use the `-j` flag for `make` and
+execute several processes in parallel. The number of CPU;s in your system plus
+one can be a good choice for the number of parallel processes.
 
 [carmack]: http://en.wikipedia.org/wiki/John_D._Carmack
 [carmack_blog]: http://www.armadilloaerospace.com/n.x/johnc/recent%20updates/archive?news_id=295
@@ -221,8 +229,20 @@ data.
 During the first invocation of the makefile you will be prompted to manually
 download the resources necessary to run [C&C][ccg] and [Enju][enju] since
 their licenses don't allow re-distribution without explicitly agreeing with
-their license agreement. All other software is already included in the
-repository.
+their license agreement.
+
+#### Liberally Licensed Software ####
+
+Since source repositories tend to handle binary data poorly and GitHub has
+restrictions on repository sizes the Makefile will attempt to download all
+other software automatically. But just like the restricted software the
+liberally licensed software can be placed manually into (but into `wrk/good`
+as opposed to `wrk/bad`), this will cause GNU Make not to fetch and instead
+used the manually placed software.
+
+For the data, the restricted software and the liberally licensed software
+checksums are provided of the archives used for the released parses. These can
+be found in the `checksums` directory.
 
 #### Placing the Data ####
 
@@ -238,14 +258,13 @@ want to process should not use this file suffix.
 
 #### Invoking the Pre-processing ####
 
-For the easiest case just use and follow the instructions to manually download
-the software which licenses prohibits us to access it automatically.
+To invoke the pipeline just execute:
 
-    cd ${WHERE_YOU_DOWLOADED_AND_EXTRACTED_THE_REPOSITORY}
     make
 
-<!-- TODO: Just a single type -->
-<!-- TODO: Where will the data end up? -->
+If you want to run several processes in parallel for increased speed use
+the `-j` flag for `make` to set the number of parallel processes. After the
+processes has terminated your output will be found in the `build` directory.
 
 [nix]: http://en.wikipedia.org/wiki/Unix-like "Unix-like on Wikipedia"
 [perl]: http://www.perl.org/ "Perl Homepage"
@@ -329,15 +348,27 @@ be found in `tools/repack.py`.
 
     tools/repack.py ${OUTPUT_DIR} ${REFORMATTED_OUTPUT_DIR}
 
-The format is as follows:
-
-<!-- TODO: List all of it -->
-
 [bionlp09]: http://www-tsujii.is.s.u-tokyo.ac.jp/GENIA/SharedTask/ "BioNLP'09 Shared Task Homepage"
 
-## Parse failures ##
+## Repository Directory Structure ##
 
-<!-- TODO: Here we will list sources of failures for different parser software. Maybe link it if it is too big. -->
+This is the layout of the repository directories, directories marked with
+stars (\*) are created by the script and those marked with hashes has (#) to
+be created by the user.
+
+    .
+    ├── build // Destination of the final "internal" output data (*)
+    │   └── release // Output data packaged as it was released (*)
+    ├── checksums // Checksums for relevant data and software
+    ├── doc // Documentation related data
+    ├── input // Input data for the parsing pipeline (#)
+    ├── patches // Patches necessary to run certain software
+    ├── tools // Tools provided by the organisers and associates
+    └── wrk // (*)
+        ├── bad // Software with restricted licenses (*)
+        ├── data // Temporary storage of data while being processed (*)
+        ├── external // Extracted and built software (*)
+        └── good // Liberally licensed software (*)
 
 ## Postmortem ##
 
