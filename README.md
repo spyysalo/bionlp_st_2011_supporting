@@ -36,7 +36,7 @@ This section covers the usage of the scripts and how to set them up appropriatel
 ## Quick-start ##
 
 In an ideal world, you would ge able to just pull this repository and run it,
-but as [Carmack][carmack] has pointed out on [a different note][wrinceonce]
+but as [Carmack][carmack] has pointed out on [a different note][writeonce]
 "Write-once-run-anywhere. Ha. Hahahahaha." Most likely you will have to read
 the "Prerequisites" section, but here is the absolutely quickest way to
 replicate the process using this repository.
