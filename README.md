@@ -73,7 +73,7 @@ The [CCG][ccg]:
 
     make candc
 
-The [Enju parser][parser]:
+The [Enju parser][enju]:
 
     make enju
 
@@ -81,7 +81,7 @@ The [Genia Dependency parser][gdep]:
 
     make gdep
 
-The McClosky Biomedical model for the [Charniak-Johnson parser][]:
+The McClosky Biomedical model for the [Charniak-Johnson parser][mcccj]:
 
     make mcccj
 
