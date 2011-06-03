@@ -46,10 +46,12 @@ Clone the repository:
     git clone git@github.com:ninjin/bionlp_st_2011_supporting.git
 
 Or download and extract the repository using the "Downloads" button on this
-page.
+page:
 
-Create the `input` directory and place one or several Gzipped tarballs
-containing files with `.txt` extensions and run:
+    tar xfz ${NAME_OF_THE_ARCHIVE_YOU_DOWNLOADED}
+
+Create the `input` directory inside the repository structure and place one or
+several Gzipped tarballs containing files with `.txt` extensions and run:
 
     make
 
