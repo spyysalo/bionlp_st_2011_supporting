@@ -53,6 +53,13 @@ page:
 Create the `input` directory inside the repository structure and place one or
 several Gzipped tarballs containing files with `.txt` extensions and run:
 
+    cd bionlp_st_2011_supporting
+    mkdir input
+    cp ${WHERE_YOU_KEEP_YOUR_TEXT_TARBALLS} input
+
+From here the script should take over, download, compile and produce the
+output using the same pipeline that was used for BioNLP ST 2011:
+
     make
 
 Or, if you prefer to only use one out of several available parsers use one of
