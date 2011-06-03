@@ -36,10 +36,10 @@ This section covers the usage of the scripts and how to set them up appropriatel
 ## Quick-start ##
 
 In an ideal world, you would ge able to just pull this repository and run it,
-but as [Carmack][carmack] has pointed out on [a different note][writeonce]
-"Write-once-run-anywhere. Ha. Hahahahaha." Most likely you will have to read
-the "Prerequisites" section, but here is the absolutely quickest way to
-replicate the process using this repository.
+but as [Carmack][carmack] has pointed out on [a different note][carmack_blog]
+"[Write-once-run-anywhere][writeonce]. Ha. Hahahahaha." Most likely you will
+have to read the "Prerequisites" section, but here is the absolutely quickest
+way to replicate the process using this repository.
 
 Clone the repository:
 
@@ -63,21 +63,40 @@ output using the same pipeline that was used for BioNLP ST 2011:
     make
 
 Or, if you prefer to only use one out of several available parsers use one of
-the following:
+the following.
 
-<!-- Expand the names here! -->
+The [Berkeley parser][berkeley]:
 
     make berkeley
+
+The [CCG][ccg]:
+
     make candc
+
+The [Enju parser][parser]:
+
     make enju
+
+The [Genia Dependency parser][gdep]:
+
     make gdep
+
+The McClosky Biomedical model for the [Charniak-Johnson parser][]:
+
     make mcccj
+
+The [Genia Sentence Splitter][geniass] and/or tokenisation:
+
     make ss
-    make stanford
     make tok
 
+The  [Stanford parser][stanford]:
+
+    make stanford
+
 [carmack]: http://en.wikipedia.org/wiki/John_D._Carmack
-[writeonce]: http://www.armadilloaerospace.com/n.x/johnc/recent%20updates/archive?news_id=295
+[carmack_blog]: http://www.armadilloaerospace.com/n.x/johnc/recent%20updates/archive?news_id=295
+[writeonce]: http://en.wikipedia.org/wiki/Write_once,_run_anywhere
 
 ### Prerequisites ##
 
@@ -278,11 +297,12 @@ the relevant files upon changing the procedure.
 
 [gnumake]: http://www.gnu.org/software/make/ "GNU Make Hompage"
 [geniass]: http://www-tsujii.is.s.u-tokyo.ac.jp/~y-matsu/geniass/ "GeniaSS Homepage"
-[enju]: http://www-tsujii.is.s.u-tokyo.ac.jp/enju/ "Enju Homepage"
-[berkeley]: http://code.google.com/p/berkeleyparser/ "Berkeley Parser Hompage"
-[stanford]: http://nlp.stanford.edu/software/lex-parser.shtml "Stanford Parser Hompage"
-[ccg]: http://svn.ask.it.usyd.edu.au/trac/candc/wiki "CCG "
+[enju]: http://www-tsujii.is.s.u-tokyo.ac.jp/enju/ "Enju Parser Homepage"
+[berkeley]: http://code.google.com/p/berkeleyparser/ "Berkeley Parser Homepage"
+[stanford]: http://nlp.stanford.edu/software/lex-parser.shtml "Stanford Parser Homepage"
+[ccg]: http://svn.ask.it.usyd.edu.au/trac/candc/wiki "Curran and Clark CCG Parser Homepage"
 [gdep]: http://people.ict.usc.edu/~sagae/parser/gdep/index.html
+[mcccj]: http://www.cs.brown.edu/~ec/ "Charniak-Johnson Parser Homepage"
 
 ## Naming Conventions ##
 
