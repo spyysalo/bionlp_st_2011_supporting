@@ -81,7 +81,8 @@ The [Genia Dependency parser][gdep]:
 
     make gdep
 
-The McClosky Biomedical model for the [Charniak-Johnson parser][mcccj]:
+The [McClosky Biomedical model][mcclosky] for
+the [Charniak-Johnson parser][cj]:
 
     make mcccj
 
@@ -302,7 +303,8 @@ the relevant files upon changing the procedure.
 [stanford]: http://nlp.stanford.edu/software/lex-parser.shtml "Stanford Parser Homepage"
 [ccg]: http://svn.ask.it.usyd.edu.au/trac/candc/wiki "Curran and Clark CCG Parser Homepage"
 [gdep]: http://people.ict.usc.edu/~sagae/parser/gdep/index.html
-[mcccj]: http://www.cs.brown.edu/~ec/ "Charniak-Johnson Parser Homepage"
+[cj]: http://www.cs.brown.edu/~ec/ "Charniak-Johnson Parser Homepage"
+[mcclosky]: http://www.cs.brown.edu/~dmcc/biomedical.html "David McClosky's Biomedical Models Homepage"
 
 ## Naming Conventions ##
 
