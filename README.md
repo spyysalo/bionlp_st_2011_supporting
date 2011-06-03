@@ -364,7 +364,7 @@ be created by the user.
     ├── input // Input data for the parsing pipeline (#)
     ├── patches // Patches necessary to run certain software
     ├── tools // Tools provided by the organisers and associates
-    └── wrk // (*)
+    └── wrk // Work directory, freely write-able by the script (*)
         ├── bad // Software with restricted licenses (*)
         ├── data // Temporary storage of data while being processed (*)
         ├── external // Extracted and built software (*)
