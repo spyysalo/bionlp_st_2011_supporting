@@ -63,7 +63,7 @@ output using the same pipeline that was used for BioNLP ST 2011:
     make
 
 Or, if you prefer to only use one out of several available parsers use one of
-the following.
+the following. Afterwards your parses will be in the `build` directory.
 
 The [Berkeley parser][berkeley]:
 
@@ -244,9 +244,7 @@ the software which licenses prohibits us to access it automatically.
     cd ${WHERE_YOU_DOWLOADED_AND_EXTRACTED_THE_REPOSITORY}
     make
 
-<!-- TODO: Without bad software! -->
 <!-- TODO: Just a single type -->
-<!-- TODO: Select the data directory. -->
 <!-- TODO: Where will the data end up? -->
 
 [nix]: http://en.wikipedia.org/wiki/Unix-like "Unix-like on Wikipedia"
@@ -380,8 +378,6 @@ All work is available under the [ISC License][iscl]. Do note that not all the
 software used to produce the post-processed data use this license, check with
 each software provider and their website for their respective license and
 requirements.
-
-<!-- TODO: Mention data licensing as well -->
 
 [iscl]: http://opensource.org/licenses/isc-license "ISC License at opensource.org"
 
