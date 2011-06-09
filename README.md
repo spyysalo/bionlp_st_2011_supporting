@@ -297,7 +297,7 @@ For tokenisation we use an in-house tokenisation script
 the [Genia Treebank][gtb] (GTB). The script also supports several flags such
 as `-ptb` that produces Penn Treebank (PTB) escapes which is necessary for the
 Berkley parser input. `-mccc` is also used for shortcomings in the McClosky
-model used, plase see the section on "McClosky Charniak-Johnson" for details.
+model used, please see the section on "McClosky Charniak-Johnson" for details.
 
 ### Enju Parser ###
 
@@ -306,8 +306,8 @@ supplies conversion tools into other formats. To convert into PTB-style output
 we use the Enju `convert` tool and a custom Perl script provided by the Enju
 developers `tools/postenju2ptb.prl`.
 
-Enju uses an "unknown" POS-tag `UNK` which can not be accomodated by the
-conversion tools for PTB-style output. To accomodate we convert all `UNK` tags
+Enju uses an "unknown" POS-tag `UNK` which can not be accommodated by the
+conversion tools for PTB-style output. To accommodate we convert all `UNK` tags
 into `NP`, this is a naive approach which would have been taken by a majority
 vote classifier and could be refined but works well enough for our purposes.
 
@@ -362,7 +362,7 @@ long history and for the August 2006 release it can potentially hang upon some
 given input. This causes the parser to never terminate and the "dangerous"
 sentences must be extracted by narrowing down the possible alternatives and
 then making sure that the sentence is never fed to the parser. We treat this
-similarily to the failed parses for the other parsers and replace these
+similarly to the failed parses for the other parsers and replace these
 sentences with "Parse failed !". Although this is a bit of additional work it
 is justified by the parser with the given model producing arguably the best
 parses for texts from the biomedical domain.
@@ -461,7 +461,7 @@ will take action and note the issue instead of potentially missing it and
 potentially leading to problems with for example alignment further down the
 line.
 
-While make provides some methods to parallalise the workflow it is still
+While make provides some methods to parallelise the workflow it is still
 somewhat lacking in regards to how it enables high-performing workflows. Many
 parsers have high start-up costs and starting a new process for each target
 may induce a higher degree of redundancy but in the case for a parser like
