@@ -9,7 +9,7 @@ The reason for also releasing the scripts and documenting the procedures used
 is to allow participants the chance to verify the procedure in search of
 errors. It also enables future research to replicate the procedures used to
 generate the pre-processed data, for example to create suitable training data
-for systems participating in the shared task.
+for systems that participated in the shared task.
 
 You can download the data from the [BioNLP Shared Task 2011 website][st] and
 for a good overview of the process please see this [flowchart][pipeline_img].
@@ -19,7 +19,7 @@ publications please cite the publication below which is provided
 in [BibTeX][bibtex] format:
 
     @InProceedings{stenetorp2011b,
-       author = {Stenetorp, Pontus and Topi{\'c}, Goran and Pyysalo, Sampo
+       author    = {Stenetorp, Pontus and Topi{\'c}, Goran and Pyysalo, Sampo
            and Ohta, Tomoko and Kim, Jin-Dong and Tsujii, Jun'ichi},
        title     = {BioNLP Shared Task 2011: Supporting Resources},
        booktitle = {Proceedings of the BioNLP 2011 Workshop Companion
@@ -30,16 +30,13 @@ in [BibTeX][bibtex] format:
        publisher = {Association for Computational Linguistics},
     }
 
-[st]: https://sites.google.com/site/bionlpst/
-[bibtex]: http://en.wikipedia.org/wiki/BibTeX
-
 ## Usage ##
 
 This section covers the usage of the scripts and how to set them up appropriately.
 
 ### Quick-start ###
 
-In an ideal world, you would ge able to just pull this repository and run it,
+In an ideal world, you would be able to just pull this repository and run it,
 but as [Carmack][carmack] has pointed out on [a different note][carmack_blog]
 "[Write-once-run-anywhere][writeonce]. Ha. Hahahahaha." Most likely you will
 have to read the "Prerequisites" section, but here is the absolutely quickest
@@ -55,7 +52,7 @@ page:
     tar xfz ${NAME_OF_THE_ARCHIVE_YOU_DOWNLOADED}
 
 Create the `input` directory inside the repository structure and place one or
-several Gzipped tarballs containing files with `.txt` extensions and run:
+several Gzipped tarballs containing files with `.txt` extensions:
 
     cd bionlp_st_2011_supporting
     mkdir input
@@ -103,10 +100,6 @@ If you want some additional speed you can use the `-j` flag for `make` and
 execute several processes in parallel. The number of CPU;s in your system plus
 one can be a good choice for the number of parallel processes.
 
-[carmack]: http://en.wikipedia.org/wiki/John_D._Carmack
-[carmack_blog]: http://www.armadilloaerospace.com/n.x/johnc/recent%20updates/archive?news_id=295
-[writeonce]: http://en.wikipedia.org/wiki/Write_once,_run_anywhere
-
 ### Prerequisites ##
 
 This section covers the software that is required to run the main scripts and
@@ -127,8 +120,8 @@ the option "Community Maintained Open Source software" (universe) is checked).
 
     sudo apt-get install perl python ruby make gcc sun-java6-jre
 
-For other operating systems please refer to your manual or the documents found
-on the homepages of the respective software.
+For other operating systems please refer to your manual or the documentation
+found on the homepages of the respective software.
 
 #### Perl ####
 
@@ -266,25 +259,7 @@ If you want to run several processes in parallel for increased speed use
 the `-j` flag for `make` to set the number of parallel processes. After the
 processes has terminated your output will be found in the `build` directory.
 
-[nix]: http://en.wikipedia.org/wiki/Unix-like "Unix-like on Wikipedia"
-[perl]: http://www.perl.org/ "Perl Homepage"
-[python]: http://www.python.org/ "Python Homepage"
-[ruby]: http://www.ruby-lang.org/ "Ruby Homepage"
-[gnu]: http://en.wikipedia.org/wiki/GNU "GNU on Wikipedia"
-[ubuntu]: http://www.ubuntu.com/ "Ubuntu Homepage"
-[cpp]: http://en.wikipedia.org/wiki/C%2B%2B "C++ on Wikipedia"
-[gcc]: http://gcc.gnu.org/ "The GNU C Compiler (GCC) Homepage"
-[clang]: http://clang.llvm.org/ "Clang Homepage"
-[llvm]: http://llvm.org/ "LLVM Homepage"
-[linux]: http://en.wikipedia.org/wiki/GNU/Linux_naming_controversy "GNU/Linux Naming Controversy on Wikipedia"
-[java]: http://www.java.com/ "Java Hompage"
-[tar]: http://en.wikipedia.org/wiki/Tar_%28file_format%29 "Tarball on Wikipedia"
-[openjdk]: http://openjdk.java.net/ "OpenJDK Homepage"
-[ubuntujava]: https://help.ubuntu.com/community/Java "Community Documentation on Java for Ubuntu"
-
 ## Software used ##
-
-<!-- TODO: List it all here -->
 
 ### Workflow ###
 
@@ -301,8 +276,6 @@ the following command if you have Graphviz installed.
     dot -T ${IMAGE_FORMAT} doc/parsing_pipeline.dot \
         > doc/parsing_pipeline.${IMAGE_FORMAT}
 
-[graphviz]: http://www.graphviz.org/ "Graphviz Homepage"
-[pipeline_img]: https://github.com/ninjin/bionlp_st_2011_supporting/raw/master/doc/parsing_pipeline.png
 
 ### GNU Make ###
 
@@ -310,36 +283,130 @@ We use [GNU Make][gnumake] to control the generation of the files. This
 enables us to run several sessions concurrently and be able to regenerate only
 the relevant files upon changing the procedure.
 
-<!-- TODO: This section -->
-<!-- XXX: We did apply extra code some times! -->
 
-[gnumake]: http://www.gnu.org/software/make/ "GNU Make Hompage"
-[geniass]: http://www-tsujii.is.s.u-tokyo.ac.jp/~y-matsu/geniass/ "GeniaSS Homepage"
-[enju]: http://www-tsujii.is.s.u-tokyo.ac.jp/enju/ "Enju Parser Homepage"
-[berkeley]: http://code.google.com/p/berkeleyparser/ "Berkeley Parser Homepage"
-[stanford]: http://nlp.stanford.edu/software/lex-parser.shtml "Stanford Parser Homepage"
-[ccg]: http://svn.ask.it.usyd.edu.au/trac/candc/wiki "Curran and Clark CCG Parser Homepage"
-[gdep]: http://people.ict.usc.edu/~sagae/parser/gdep/index.html
-[cj]: http://www.cs.brown.edu/~ec/ "Charniak-Johnson Parser Homepage"
-[mcclosky]: http://www.cs.brown.edu/~dmcc/biomedical.html "David McClosky's Biomedical Models Homepage"
+### GeniaSS ###
 
-## Naming Conventions ##
+[GeniaSS][geniass] is used for sentence splitting, but since the GeniaSS
+output is generally quite *"raw"*, we use small Perl script
+(`tools/geniass-postproc.pl`) to refine the output.
 
-### Releases ###
+### Tokenisation ###
 
-<!-- TODO: This section -->
+For tokenisation we use an in-house tokenisation script
+(`tools/GTB-tokenize.pl`) that emulates the tokenisation used in
+the [Genia Treebank][gtb] (GTB). The script also supports several flags such
+as `-ptb` that produces Penn Treebank (PTB) escapes which is necessary for the
+Berkley parser input. `-mccc` is also used for shortcomings in the McClosky
+model used, plase see the section on "McClosky Charniak-Johnson" for details.
 
-### File Suffixes ###
-We use two different conventions for file naming, one for the final releases
-and one internally for the postprocessing script.
+### Enju Parser ###
 
-<!-- TODO: This section -->
+[Enju][enju] is a "deep-parser" which uses its own XML-format but also
+supplies conversion tools into other formats. To convert into PTB-style output
+we use the Enju `convert` tool and a custom Perl script provided by the Enju
+developers `tools/postenju2ptb.prl`.
 
-#### Internal ####
+Enju uses an "unknown" POS-tag `UNK` which can not be accomodated by the
+conversion tools for PTB-style output. To accomodate we convert all `UNK` tags
+into `NP`, this is a naive approach which would have been taken by a majority
+vote classifier and could be refined but works well enough for our purposes.
 
-<!-- TODO: This section -->
+As for most parsers Enju can fail to parse certain sentences, for these cases
+Enju outputs a so-called flat parse:
 
-#### Release Directory Structure ####
+    (error ${SENTENCE})
+
+We replace these with a parse of the sentence "Parse failed !", this approach is
+discussed in the "Postmortem" section.
+
+*Warning:* Enju provides a multitude of binaries, the one used for the shared
+task was `enju-2.4.1-centos4-x86_64`. You will have to alter this in the
+Makefile to suit your environment.
+
+### Stanford Parser ###
+
+The [Stanford parser][stanford] is a widely used parser that produces standard
+PTB-style output. We use the `englishFactored` grammar, which although
+imposing a heavy performance penalty provides the highest possible accuracy.
+
+Upon failing to parse a sentence the Stanford parser outputs two warnings
+on `stdout`, just as for Enju we replace these with the sentence
+"Parse failed !", this approach is discussed in the "Postmortem" section.
+
+### GDep ###
+
+[GDep][gdep] is a dependency parser geared towards biomedical texts, unlike
+all other parsers we are unable to convert its output into other formats.
+Thus GDep output is only provided in its native CoNLL-X style format.
+
+### C&C CCG Parser ###
+
+Like Enju the [Clark & Curran CCG parser][candc] is a "deep-parser" which uses
+a native format different from PTB-style output. However, unlike Enju CCG
+parses can not be readily converted into PTB-style parses. Fortunately there
+is a conversion script available to convert the CCG output into Stanford
+dependency output. We used the supplied Biomedical models for the parser to
+better suit our domain.
+
+As is the case for most of our parsers there are sentences for which the
+parser is unable to provide any output, so for this parsers as well we replace
+the sentence with "Parse failed!". However, the tokenisation is slightly
+different in this case and a space is lacking before the exclamation mark.
+This is an error but will be kept for consistency.
+
+### McClosky Charniak-Johnson ###
+
+[McClosky Charniak-Johnson][mcclosky] refers to the Charniak-Johnson
+re-ranking parser using the McClosky biomedical model. This is a parser with a
+long history and for the August 2006 release it can potentially hang upon some
+given input. This causes the parser to never terminate and the "dangerous"
+sentences must be extracted by narrowing down the possible alternatives and
+then making sure that the sentence is never fed to the parser. We treat this
+similarily to the failed parses for the other parsers and replace these
+sentences with "Parse failed !". Although this is a bit of additional work it
+is justified by the parser with the given model producing arguably the best
+parses for texts from the biomedical domain.
+
+### Berkeley Parser ###
+
+The [Berkeley parser][berkeley] is a modern parser that outputs PTB-style parses. 
+
+Upon failing to parse a sentence the Berkeley parser outputs a blank parse
+on `stdout`:
+
+    (())
+
+Just as with the other parsers we replace this with the parse of the sentence
+"Parse failed !".
+
+### Stanford Tools ###
+
+[Stanford Tools][stanfordtools] enables the conversion of PTB style parses
+into dependency parses. We convert the PTB style output from our parsers into
+dependency parses and collapsed dependency parses. The tools themselves are
+robust and apart from making sure that the root node is called `ROOT` as
+opposed to `TOP` which is the case for some parsers no significant
+pre-processing is necessary. A single sentence from Enju failed to be
+converted by the tools and was manually replaced with:
+
+    (TOP (S (NP (NNP Conversion)) (VP (VBD failed))))
+
+This approach is discussed in the "Postmortem" section.
+
+### Pennconverter ###
+
+[Pennconverter][pennconverter] or more formally "The LTH
+Constituent-to-Dependency Conversion Tool for Penn-style Treebanks", a name
+which pretty much works as a description. While the tool itself was not
+constructed to handle the output of probabilistic parsers it is still fairly
+robust and by tweaking it for some special cases we converted all of the
+output from our parsers apart from C&C CCG and GDep into CoNLL-X style
+dependency parses using this tool. All sentences that could not be converted
+by the tool were replaced with the corresponding PTB-style parse of the
+sentence "Conversion failed !", this approach is discussed further in the
+"Postmortem" section.
+
+## Release Directory Structure ##
 
 In order to conform to the [BioNLP'09 Shared Task][bionlp09] post-processed
 data directory structure the output from the Makefile is re-structured into
@@ -347,8 +414,6 @@ another following format before release. This is done using a script that can
 be found in `tools/repack.py`.
 
     tools/repack.py ${OUTPUT_DIR} ${REFORMATTED_OUTPUT_DIR}
-
-[bionlp09]: http://www-tsujii.is.s.u-tokyo.ac.jp/GENIA/SharedTask/ "BioNLP'09 Shared Task Homepage"
 
 ## Repository Directory Structure ##
 
@@ -372,8 +437,6 @@ be created by the user.
 
 ## Postmortem ##
 
-<!-- This section will be expanded over time* -->
-
 Few parsers are robust enough to be released on data *"in the wild"*, this
 being said, we should always seek to report these errors since much of our
 research is dependent on parsing working correctly and we should encourage a
@@ -388,6 +451,23 @@ unexpected behaviour and building a concurrent workflow beyond the invocation
 of several targets in parallel is not supported (best way I can come up while
 writing this is running a service somewhere else and allowing Make to send
 requests to it).
+
+In hindsight I regret inserting "Parse failed!" as a replacement for failed
+parses. This choice may appear reasonably at first sight since it makes sure
+that the participants can simply assume the style of the input further down
+the line. But it is really a case of silencing errors, instead a clear marking
+such as PARSE\_FAILED should be used since it ensures that the participants
+will take action and note the issue instead of potentially missing it and
+potentially leading to problems with for example alignment further down the
+line.
+
+While make provides some methods to parallalise the workflow it is still
+somewhat lacking in regards to how it enables high-performing workflows. Many
+parsers have high start-up costs and starting a new process for each target
+may induce a higher degree of redundancy but in the case for a parser like
+GDep it causes the execution time to be prolonged by a factor in the
+hundreds. This is a problem if what you desire is a high-performing workflow
+and would require you to take another approach.
 
 ## Contact ##
 For questions regarding these scripts, how they work in relation to the
@@ -410,7 +490,44 @@ software used to produce the post-processed data use this license, check with
 each software provider and their website for their respective license and
 requirements.
 
+<!-- Links goes here -->
+
+[berkeley]: http://code.google.com/p/berkeleyparser/ "Berkeley Parser Homepage"
+[bibtex]: http://en.wikipedia.org/wiki/BibTeX "BibTeX Entry on Wikipedia"
+[bionlp09]: http://www-tsujii.is.s.u-tokyo.ac.jp/GENIA/SharedTask/ "BioNLP'09 Shared Task Homepage"
+[carmack]: http://en.wikipedia.org/wiki/John_D._Carmack "John D. Carmack Entry on Wikipedia"
+[carmack_blog]: http://www.armadilloaerospace.com/n.x/johnc/recent%20updates/archive?news_id=295 "Carmack on Mobile Java Development"
+[ccg]: http://svn.ask.it.usyd.edu.au/trac/candc/wiki "Curran and Clark CCG Parser Homepage"
+[cj]: http://www.cs.brown.edu/~ec/ "Charniak-Johnson Parser Homepage"
+[clang]: http://clang.llvm.org/ "Clang Homepage"
+[cpp]: http://en.wikipedia.org/wiki/C%2B%2B "C++ Entry on Wikipedia"
+[enju]: http://www-tsujii.is.s.u-tokyo.ac.jp/enju/ "Enju Parser Homepage"
+[gcc]: http://gcc.gnu.org/ "The GNU C Compiler (GCC) Homepage"
+[gdep]: http://people.ict.usc.edu/~sagae/parser/gdep/index.html "GDep Homepage"
+[geniass]: http://www-tsujii.is.s.u-tokyo.ac.jp/~y-matsu/geniass/ "GeniaSS Homepage"
+[gnu]: http://en.wikipedia.org/wiki/GNU "GNU on Wikipedia"
+[gnumake]: http://www.gnu.org/software/make/ "GNU Make Homepage"
+[graphviz]: http://www.graphviz.org/ "Graphviz Homepage"
+[gtb]: http://www-tsujii.is.s.u-tokyo.ac.jp/GENIA/home/wiki.cgi?page=GENIA+Treebank "Genia Treebank Homepage"
 [iscl]: http://opensource.org/licenses/isc-license "ISC License at opensource.org"
+[java]: http://www.java.com/ "Java Homepage"
+[linux]: http://en.wikipedia.org/wiki/GNU/Linux_naming_controversy "GNU/Linux Naming Controversy on Wikipedia"
+[llvm]: http://llvm.org/ "LLVM Homepage"
+[mcclosky]: http://www.cs.brown.edu/~dmcc/biomedical.html "David McClosky's Biomedical Models Homepage"
+[nix]: http://en.wikipedia.org/wiki/Unix-like "Unix-like on Wikipedia"
+[openjdk]: http://openjdk.java.net/ "OpenJDK Homepage"
+[pennconverter]: http://nlp.cs.lth.se/software/treebank_converter/ "Pennconverter Homepage"
+[perl]: http://www.perl.org/ "Perl Homepage"
+[pipeline_img]: https://github.com/ninjin/bionlp_st_2011_supporting/raw/master/doc/parsing_pipeline.png "Image Illustrating the Parsing Pipeline"
+[python]: http://www.python.org/ "Python Homepage"
+[ruby]: http://www.ruby-lang.org/ "Ruby Homepage"
+[st]: https://sites.google.com/site/bionlpst/ "BioNLP Shared Task 2011 Homepage"
+[stanford]: http://nlp.stanford.edu/software/lex-parser.shtml "Stanford Parser Homepage"
+[stanfordtools]: http://nlp.stanford.edu/software/corenlp.shtml "Stanford CoreNLP Tools Homepage"
+[tar]: http://en.wikipedia.org/wiki/Tar_%28file_format%29 "Tarball on Wikipedia"
+[ubuntu]: http://www.ubuntu.com/ "Ubuntu Homepage"
+[ubuntujava]: https://help.ubuntu.com/community/Java "Community Documentation on Java for Ubuntu"
+[writeonce]: http://en.wikipedia.org/wiki/Write_once,_run_anywhere "Write-once-run-anywhere Entry on Wikipedia"
 
 <!-- "It's a trap!" (for bots) -->
 [](http://bob.llamaslayers.net/contact.php?view=862)
