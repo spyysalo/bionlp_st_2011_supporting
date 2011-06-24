@@ -367,6 +367,9 @@ sentences with "Parse failed !". Although this is a bit of additional work it
 is justified by the parser with the given model producing arguably the best
 parses for texts from the biomedical domain.
 
+
+**Note:** If you are constructing your own parsing pipeline or don't care for backwards compability with the BioNLP ST 2011 parses. It is highly recommended to try out the latest releases of the Charniak-Johnson parser from  [charniak][this repository].
+
 ### Berkeley Parser ###
 
 The [Berkeley parser][berkeley] is a modern parser that outputs PTB-style parses. 
@@ -498,6 +501,7 @@ requirements.
 [carmack]: http://en.wikipedia.org/wiki/John_D._Carmack "John D. Carmack Entry on Wikipedia"
 [carmack_blog]: http://www.armadilloaerospace.com/n.x/johnc/recent%20updates/archive?news_id=295 "Carmack on Mobile Java Development"
 [ccg]: http://svn.ask.it.usyd.edu.au/trac/candc/wiki "Curran and Clark CCG Parser Homepage"
+[charniak]: https://bitbucket.org/bllip/bllip-parser/ "Charniak-Johnson Parser Repository"
 [cj]: http://www.cs.brown.edu/~ec/ "Charniak-Johnson Parser Homepage"
 [clang]: http://clang.llvm.org/ "Clang Homepage"
 [cpp]: http://en.wikipedia.org/wiki/C%2B%2B "C++ Entry on Wikipedia"
