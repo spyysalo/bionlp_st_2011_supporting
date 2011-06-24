@@ -368,7 +368,7 @@ is justified by the parser with the given model producing arguably the best
 parses for texts from the biomedical domain.
 
 
-**Note:** If you are constructing your own parsing pipeline or don't care for backwards compability with the BioNLP ST 2011 parses. It is highly recommended to try out the latest releases of the Charniak-Johnson parser from  [charniak][this repository].
+**Note:** If you are constructing your own parsing pipeline or don't care for backwards compability with the BioNLP ST 2011 parses. It is highly recommended to try out the latest releases of the Charniak-Johnson parser from [this repository][charniak].
 
 ### Berkeley Parser ###
 
