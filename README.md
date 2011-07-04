@@ -18,16 +18,17 @@ If you make use of the released data or these instructions in your
 publications please cite the publication below which is provided
 in [BibTeX][bibtex] format:
 
-    @InProceedings{stenetorp2011b,
-       author    = {Stenetorp, Pontus and Topi{\'c}, Goran and Pyysalo, Sampo
-           and Ohta, Tomoko and Kim, Jin-Dong and Tsujii, Jun'ichi},
-       title     = {BioNLP Shared Task 2011: Supporting Resources},
-       booktitle = {Proceedings of the BioNLP 2011 Workshop Companion
-           Volume for Shared Task},
-       month     = {June},
-       year      = {2011},
-       address   = {Portland, Oregon},
-       publisher = {Association for Computational Linguistics},
+    @InProceedings{stenetorp2011bionlp,
+      author    = {Stenetorp, Pontus and Topi\'{c}, Goran and Pyysalo, Sampo
+          and Ohta, Tomoko and Kim, Jin-Dong and Tsujii, Jun'ichi},
+      title     = {BioNLP Shared Task 2011: Supporting Resources},
+      booktitle = {Proceedings of BioNLP Shared Task 2011 Workshop},
+      month     = {June},
+      year      = {2011},
+      address   = {Portland, Oregon, USA},
+      publisher = {Association for Computational Linguistics},
+      pages     = {112--120},
+      url       = {http://www.aclweb.org/anthology/W11-1816}
     }
 
 ## Usage ##
@@ -368,7 +369,10 @@ is justified by the parser with the given model producing arguably the best
 parses for texts from the biomedical domain.
 
 
-**Note:** If you are constructing your own parsing pipeline or don't care for backwards compability with the BioNLP ST 2011 parses. It is highly recommended to try out the latest releases of the Charniak-Johnson parser from [this repository][charniak].
+**Note:** If you are constructing your own parsing pipeline or don't care
+about backwards compability with the BioNLP ST 2011 parses. It is highly
+recommended to try out the latest releases of the Charniak-Johnson parser
+from [this repository][charniak].
 
 ### Berkeley Parser ###
 
