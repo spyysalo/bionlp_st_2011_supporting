@@ -228,7 +228,7 @@ their license agreement.
 #### Liberally Licensed Software ####
 
 Since source repositories tend to handle binary data poorly and GitHub has
-restrictions on repository sizes the Makefile will attempt to download all
+restrictions on repository sizes the makefile will attempt to download all
 other software automatically. But just like the restricted software the
 liberally licensed software can be placed manually into (but into `wrk/good`
 as opposed to `wrk/bad`), this will cause GNU Make not to fetch and instead
@@ -322,7 +322,7 @@ discussed in the "Postmortem" section.
 
 *Warning:* Enju provides a multitude of binaries, the one used for the shared
 task was `enju-2.4.1-centos4-x86_64`. You will have to alter this in the
-Makefile to suit your environment.
+makefile to suit your environment.
 
 ### Stanford Parser ###
 
@@ -416,7 +416,7 @@ sentence "Conversion failed !", this approach is discussed further in the
 ## Release Directory Structure ##
 
 In order to conform to the [BioNLP'09 Shared Task][bionlp09] post-processed
-data directory structure the output from the Makefile is re-structured into
+data directory structure the output from the makefile is re-structured into
 another following format before release. This is done using a script that can
 be found in `tools/repack.py`.
 
@@ -450,7 +450,7 @@ research is dependent on parsing working correctly and we should encourage a
 software/research culture where we can rely on the work and implementations of
 others.
 
-To sum up what I have learnt about Makefiles over the course of this work,
+To sum up what I have learnt about makefiles over the course of this work,
 there are many alternatives to Make, not necessarily because people didn't
 know of the existence of Make, but rather that a lot of people got to know
 Make and then moved on. The syntax is error prone, sometimes you end up with
