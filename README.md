@@ -14,7 +14,7 @@ for systems that participated in the shared task.
 You can download the data from the [BioNLP Shared Task 2011 website][st] and
 for a good overview of the process please see this [flowchart][pipeline_img].
 
-If you make use of the released data or these instructions in your
+If you make use of [the released data][data] or these instructions in your
 publications please cite the publication below which is provided
 in [BibTeX][bibtex] format:
 
@@ -509,6 +509,7 @@ requirements.
 [cj]: http://www.cs.brown.edu/~ec/ "Charniak-Johnson Parser Homepage"
 [clang]: http://clang.llvm.org/ "Clang Homepage"
 [cpp]: http://en.wikipedia.org/wiki/C%2B%2B "C++ Entry on Wikipedia"
+[data]: http://www-tsujii.is.s.u-tokyo.ac.jp/GENIA/BioNLP-ST/downloads/support-downloads.html "Supporting Analyses for BioNLP ST 2011"
 [enju]: http://www-tsujii.is.s.u-tokyo.ac.jp/enju/ "Enju Parser Homepage"
 [gcc]: http://gcc.gnu.org/ "The GNU C Compiler (GCC) Homepage"
 [gdep]: http://people.ict.usc.edu/~sagae/parser/gdep/index.html "GDep Homepage"
