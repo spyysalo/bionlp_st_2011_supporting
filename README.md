@@ -14,9 +14,9 @@ for systems that participated in the shared task.
 You can download the data from the [BioNLP Shared Task 2011 website][st] and
 for a good overview of the process please see this [flowchart][pipeline_img].
 
-If you make use of [the released data][data] or these instructions in your
-publications please cite the publication below which is provided
-in [BibTeX][bibtex] format:
+If you make use of [the released preprocessed data][data] or these
+instructions in your publications please cite the publication below which is
+provided in [BibTeX][bibtex] format:
 
     @InProceedings{stenetorp2011bionlp,
       author    = {Stenetorp, Pontus and Topi\'{c}, Goran and Pyysalo, Sampo
