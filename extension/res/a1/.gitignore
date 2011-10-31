@@ -1,0 +1,7 @@
+# Don't commit the resources and archives
+*.a1
+*.a2
+*.tar.gz
+*.txt
+LICENSE
+README

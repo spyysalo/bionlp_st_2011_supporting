@@ -1,0 +1,3 @@
+# Don't commit annotation resources
+*.nesp
+*.tar.gz
